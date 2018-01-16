@@ -19,11 +19,7 @@ import sys
 max_value = lambda x: max([max(i) for i in x])
 min_value = lambda x: min([min(i) for i in x])
 
-def printt(listt):
-    for i in listt:
-        print(i)
-    print('=============================')
-
+# fill layer with "water"
 def fill(strk, stlb):
     global isla
 
@@ -47,6 +43,7 @@ def fill(strk, stlb):
 
     return
 
+# returns map of single layer
 def layer(matrix, n):
     new = [[] for i in range(len(matrix))]
     for i in range(len(matrix)):
@@ -57,6 +54,7 @@ def layer(matrix, n):
                 new[i].append(1)
     return new
 
+# returns list of layers
 def layers(island):
     new = []
     for i in range(min_value(island) + 1, max_value(island) + 1):
