@@ -33,15 +33,8 @@ def end_point(x, y, z):
     r = 35
     sigma = 0.1
     L = - log(random()) / sigma
-    L = 50
     phi = uniform(0, 2 * pi)
-    ksi = pi - arctan(y / x)
-    l_1 = sqrt(x * x + y * y)
-    b = -2 * l_1 * cos(phi + ksi)
-    c = l_1 ** 2 - r ** 2
-    discriminant = b ** 2 - 4 * c
     # dist between start point and  cylinder
-    l_2 = (-b + sqrt(discriminant)) / 2
     alpha = uniform(0, pi / 2)
     x_end = x + L * cos(alpha) * cos(phi)
     y_end = y + L * cos(alpha) * sin(phi)
@@ -75,7 +68,7 @@ def end_point(x, y, z):
 def binary_shortener(x, y, phi, r):
     d = 71
     d_previous = 0
-    eps = 0.00001
+    eps = 0.001
     x_new = x + d * cos(phi)
     y_new = y + d * sin(phi)
     while abs(x_new ** 2 + y_new ** 2 - r ** 2) > eps:
