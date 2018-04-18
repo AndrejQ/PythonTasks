@@ -22,7 +22,7 @@ def aria_function(z_layer_coord, z_globules_number, L_cube, R):
     x = linspace(-L_cube / 2, L_cube / 2, quality)
     y = zeros(quality)
     for i in range(len(z_layer_coord)):
-        y += globule_area(z_layer_coord[i] - R, R, x) * z_globules_number[i] / (L_cube + R) ** 2
+        y += globule_area(z_layer_coord[i] - R, R, x) * z_globules_number[i] / (L_cube) ** 2 / 4
     plt.figure()
     plt.plot(x, y)
     plt.show()

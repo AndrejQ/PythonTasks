@@ -22,7 +22,7 @@ def rotate_to_collinear_to_z(dot, direction):
 
 
 def is_in_cube(dot):
-    return abs(dot[0]) < L_cube / 2 and abs(dot[1]) < L_cube and abs(dot[2]) < L_cube / 2
+    return abs(dot[0]) < L_cube / 1 and abs(dot[1]) < L_cube / 1 and abs(dot[2]) < L_cube / 2
 
 
 def init_crystal_lattice(N, l):
@@ -43,11 +43,11 @@ def init_crystal_lattice(N, l):
     return dots
 
 
-N = 2
+N = 5
 l = 1
 L_cube = 2 * N * l / 2 / sqrt(2)
 R = l / 2 / sqrt(2)
-direction = (1, 5, 3)  # (x_direst, y_direst, z_direst)
+direction = (1, 2, 3)  # (x_direst, y_direst, z_direst)
 
 print(L_cube, 'l cube')
 print(R, 'R')
