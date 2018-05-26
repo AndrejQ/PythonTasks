@@ -3,6 +3,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import pyplot as plt
 from numpy import sqrt, sin, cos, pi, array, arctan
 from layer_area import aria_function
+from furier import decompose
 
 
 def rotate_to_collinear_to_z(dot, direction):
@@ -22,6 +23,7 @@ def rotate_to_collinear_to_z(dot, direction):
 
 
 def is_in_cube(dot):
+    return (dot[0])**2 + (dot[1])**2 + abs(dot[2])**2 < (L_cube / 2) ** 2
     return abs(dot[0]) < L_cube / 1 and abs(dot[1]) < L_cube / 1 and abs(dot[2]) < L_cube / 2
 
 
@@ -43,11 +45,11 @@ def init_crystal_lattice(N, l):
     return dots
 
 
-N = 5
+N = 15
 l = 1
 L_cube = 2 * N * l / 2 / sqrt(2)
 R = l / 2 / sqrt(2)
-direction = (1, 2, 3)  # (x_direst, y_direst, z_direst)
+direction = (1, 1, 1)  # (x_direst, y_direst, z_direst)
 
 print(L_cube, 'l cube')
 print(R, 'R')
@@ -87,7 +89,8 @@ for i in list(layer_dots.items()):
     dielectr_y.append(len(i[1]))
 
 '''Plotting 2D'''
-aria_function(dielectr_x, dielectr_y, L_cube, R)
+x, K = aria_function(dielectr_x, dielectr_y, L_cube, R)
+decompose(x, K)
 # plt.figure()
 # plt.grid(True)
 # plt.plot(dielectr_x, dielectr_y, 'o')
